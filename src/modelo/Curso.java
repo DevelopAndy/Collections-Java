@@ -1,12 +1,20 @@
 package modelo;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 
 public class Curso {
 	
 	private String nombre;
 	private int tiempo;
 	private List<Aula> claseList;
+	private Collection<Alumno> alumnos = new HashSet<>();
+	//private Collection<Alumno> alumnos = new LinkedHashSet<>();
+	private Map<String, Alumno> alumnoMap = new HashMap<>();
 	
 	public Curso(String nombre, int tiempo) {
 		this.nombre = nombre;
@@ -42,6 +50,23 @@ public class Curso {
 	
 	public void addAula(Aula clase) {
 		this.claseList.add(clase);
+	}
+	
+	public void addAlumno(Alumno alumno) {
+		this.alumnos.add(alumno);
+		this.alumnoMap.put(alumno.getCodigo(), alumno);
+	}
+	
+	public Map<String, Alumno> getAlumnoMap() {
+		return alumnoMap;
+	}
+
+	public boolean verificaAlumno(Alumno alumno) {
+		return this.alumnos.contains(alumno);
+	}
+	
+	public Collection<Alumno> getAlumnos() {
+		return alumnos;
 	}
 
 	@Override
