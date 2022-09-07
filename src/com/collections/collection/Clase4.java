@@ -2,6 +2,8 @@ package com.collections.collection;
 
 import java.util.ArrayList;
 
+import modelo.Curso;
+
 public class Clase4 {
 	
 	public static void main(String[] args) {
